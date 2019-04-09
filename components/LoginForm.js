@@ -1,0 +1,41 @@
+class LoginForm extends React.Component {
+	state = {
+		email: "",
+		password: ""
+	};
+
+	handleSubmit = (e) => {
+		e.preventDefault();
+		console.log(this.state);
+	};
+
+	handleChange = (e) => {
+		this.setState({ [e.target.name]: e.taget.value });
+	};
+
+	render() {
+		return (
+			<form onSubmit={this.handleSubmit}>
+				<div>
+					<input
+						type="email"
+						name="email"
+						placeholder="email"
+						onChange={this.handleChange}
+					/>
+				</div>
+				<div>
+					<input
+						type="password"
+						name="password"
+						placeholder="password"
+						onChange={this.handleChange}
+					/>
+				</div>
+				<button type="submit"> Submit </button>
+			</form>
+		);
+	}
+}
+
+export default LoginForm;
