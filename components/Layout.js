@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Layout = () => (
+const Layout = ({ title, children }) => (
 	<div className="root">
 		<nav className="navbar">
 			<span>
@@ -17,5 +17,36 @@ const Layout = () => (
 				</Link>
 			</div>
 		</nav>
+		<h1> {title} </h1>
+		{children}
+
+		<style jsx>
+			{`
+        .root{
+            display:flex;
+            align-items: center;
+            justify-content:center;
+            flex-direction: column;
+        }
+        .navbar{
+            width: 100%
+            display: flex;
+            justify-content:space-around;
+        }
+        a {
+            margin-right: 0.rem;
+        }
+        button {
+            text-decoration: underline;
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            border-style: none;
+            color: rgb(0,0, 258);
+        }
+        `}
+		</style>
 	</div>
 );
+
+export default Layout;
